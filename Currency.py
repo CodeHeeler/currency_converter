@@ -30,7 +30,7 @@ class Currency:
     def __add__(self, other):
         if isinstance(other, self.__class__):
             if self.code == other.code:
-                return Currency(self.code, self.amount + other.amount)
+                return Currency(self.amount + other.amount, self.code)
             else:
                 raise DifferentCurrencyCodeError("Codes don't match in add")
         else:
@@ -39,7 +39,7 @@ class Currency:
     def __sub__(self, other):
         if isinstance(other, self.__class__):
             if self.code == other.code:
-                return Currency(self.code, self.amount - other.amount)
+                return Currency(self.amount - other.amount, self.code)
             else:
                 raise DifferentCurrencyCodeError("Codes don't match in subtract")
         else:
@@ -50,7 +50,7 @@ class Currency:
         if type(multiplier) == int or type(multiplier) == float:
         # test type of multiplier to be int or float
         # raise DifferentClassError
-            return Currency(self.code, self.amount * multiplier)
+            return Currency(self.amount * multiplier, self.code)
         else:
             raise DifferentClassError("Cannot multiply by a non-number")
 
