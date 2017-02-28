@@ -9,8 +9,8 @@ class DifferentClassError(ValueError):
 class Currency:
     def __init__(self, amount, code=''):
         if code == "":
-            self.code = amount(0)
-            self.amount = float(amount(1:))
+            self.code = amount[0]
+            self.amount = float(amount[1:])
         else:
             self.code = code
             self.amount = amount
