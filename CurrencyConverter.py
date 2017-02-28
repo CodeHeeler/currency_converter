@@ -18,7 +18,7 @@ class CurrencyConverter:
                 if currency.code == code:
                     return Currency(currency.amount, code)
                 else:
-                    return Currency(currency * (1 / self.rates[code]))
+                    return Currency(currency * (1 / self.rates[code]), code)
             else:
                 raise UnknownCurrencyCodeError("Do not have the rate for that currency")
         else:
