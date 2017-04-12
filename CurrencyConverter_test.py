@@ -1,4 +1,5 @@
 from CurrencyConverter import CurrencyConverter
+from Currency import *
 
 
 rates = {'USD': 1.0, 'EUR': 0.5, 'JAP': 2}

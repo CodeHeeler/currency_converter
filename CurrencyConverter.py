@@ -1,6 +1,4 @@
-import Currency from Currency
-import DifferentCurrencyCodeError from Currency
-import DifferentClassError from Currency
+from Currency import Currency, DifferentCurrencyCodeError, DifferentClassError
 
 
 def UnknownCurrencyCodeError(ValueError):
@@ -12,7 +10,7 @@ class CurrencyConverter:
         self.rates = dict_rates
 
 
-    def convert(currency, code):
+    def convert(self, currency, code):
         if isinstance(currency, Currency):
             if code in self.rates:
                 if currency.code == code:

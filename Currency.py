@@ -10,7 +10,10 @@ class Currency:
     def __init__(self, amount, code=''):
         if code == "":
             self.code = amount[0]
-            self.amount = float(amount[1:])
+            if isinstance(amount[1:], int):
+                self.amount = int(amount[1:])
+            else:
+                self.amount = float(amount[1:])
         else:
             self.code = code
             self.amount = amount
@@ -55,9 +58,12 @@ class Currency:
             raise DifferentClassError("Cannot multiply by a non-number")
 
     def __str__(self):
-        if self.code == "USD":
-            print("${}".format(self.amount))
+        if self.code == "USD" or self.code == "$":
+            return ("$" + str(self.amount))
+            # print("${}".format(self.amount))
         elif self.code == "EUR":
-            print("€{}".format(self.amount))
+            return ("€" + str(self.amount))
+            # print("€{}".format(self.amount))
         elif self.code == "JAP":
-            print("¥{}".format(self.amount))
+            return ("¥" + str(self.amount))
+            # print("¥{}".format(self.amount))
