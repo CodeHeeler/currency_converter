@@ -11,12 +11,22 @@ class CurrencyConverter:
 
 
     def convert(self, currency, code):
+        # code_dict = {"USD": "$", "EUR": "€", "JAP": "¥"}
         if isinstance(currency, Currency):
             if code in self.rates:
-                if currency.code == code:
+                # if code in list(code_dict.keys()):
+                #     code = code_dict[code]
+                abrev = ""
+                if currency.code == "$":
+                    abrev = "USD"
+                elif currency.code == "€":
+                    abrev = "EUR"
+                elif currency.code == "¥":
+                    abrev = "JAP"
+                if abrev == code:
                     return Currency(currency.amount, code)
                 else:
-                    return Currency(currency.amount * (self.rates[code] / self.rates[currency.code]), code)
+                    return Currency(currency.amount * (self.rates[code] / self.rates[abrev]), code)
             else:
                 raise UnknownCurrencyCodeError("Do not have the rate for that currency")
         else:

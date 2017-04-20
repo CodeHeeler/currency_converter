@@ -11,7 +11,7 @@ def test_converter_same():
 
 
 def test_converter_different():
-    assert currency_converter.convert(Currency(1, 'USD'), 'EUR') == Currency(2, "EUR")
+    assert currency_converter.convert(Currency(1, 'USD'), 'EUR') == Currency(0.5, "EUR")
 
 
 test_converter_same()
